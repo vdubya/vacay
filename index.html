@@ -1,580 +1,271 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-<meta name="theme-color" content="#0d5c84"/>
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-<meta name="apple-mobile-web-app-title" content="Big Island Trip"/>
-<link rel="manifest" href="data:application/manifest+json;charset=utf-8,%7B%22name%22%3A%20%22Big%20Island%20Family%20Adventure%22%2C%20%22short_name%22%3A%20%22Big%20Island%20Trip%22%2C%20%22start_url%22%3A%20%22.%22%2C%20%22display%22%3A%20%22standalone%22%2C%20%22background_color%22%3A%20%22%23f4f7fb%22%2C%20%22theme_color%22%3A%20%22%230d5c84%22%2C%20%22description%22%3A%20%22Mobile%20itinerary%20for%20a%20Big%20Island%20family%20trip.%22%2C%20%22icons%22%3A%20%5B%5D%7D">
-<link rel="icon" href="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20x2%3D%221%22%20y1%3D%220%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%230d5c84%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%2252%25%22%20stop-color%3D%22%231294c3%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2351c0ad%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22512%22%20height%3D%22512%22%20rx%3D%22110%22%20fill%3D%22url%28%23g%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M96%20310c56-70%20104-66%20158-8%2048%2052%2088%2050%20162-8v76H96z%22%20fill%3D%22%23fff%22%20opacity%3D%22.95%22/%3E%0A%20%20%3Ccircle%20cx%3D%22188%22%20cy%3D%22186%22%20r%3D%2248%22%20fill%3D%22%23fff%22/%3E%0A%20%20%3Cpath%20d%3D%22M326%20132l44%2072-44%2072h-26l44-72-44-72z%22%20fill%3D%22%23fff%22/%3E%0A%3C/svg%3E">
-<link rel="apple-touch-icon" href="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20512%20512%22%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20x2%3D%221%22%20y1%3D%220%22%20y2%3D%221%22%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%230d5c84%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%2252%25%22%20stop-color%3D%22%231294c3%22/%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2351c0ad%22/%3E%0A%20%20%20%20%3C/linearGradient%3E%0A%20%20%3C/defs%3E%0A%20%20%3Crect%20width%3D%22512%22%20height%3D%22512%22%20rx%3D%22110%22%20fill%3D%22url%28%23g%29%22/%3E%0A%20%20%3Cpath%20d%3D%22M96%20310c56-70%20104-66%20158-8%2048%2052%2088%2050%20162-8v76H96z%22%20fill%3D%22%23fff%22%20opacity%3D%22.95%22/%3E%0A%20%20%3Ccircle%20cx%3D%22188%22%20cy%3D%22186%22%20r%3D%2248%22%20fill%3D%22%23fff%22/%3E%0A%20%20%3Cpath%20d%3D%22M326%20132l44%2072-44%2072h-26l44-72-44-72z%22%20fill%3D%22%23fff%22/%3E%0A%3C/svg%3E">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f5d8c">
 <title>Big Island Family Adventure</title>
 <style>
-:root {
-  --bg: #f4f7fb;
-  --card: #ffffff;
-  --text: #16324f;
-  --muted: #5f7288;
-  --accent: #0f5d8c;
-  --accent2: #1294c3;
-  --good: #16a085;
-  --border: #dce6f0;
-  --shadow: 0 12px 28px rgba(14,34,59,.10);
-  --radius: 20px;
-  --headerH: 104px;
+:root{
+  --bg:#f4f7fb; --card:#fff; --ink:#17324d; --muted:#607286; --line:#dbe6f0;
+  --blue:#0f5d8c; --teal:#14a6b8; --sand:#f8f1e7; --green:#eff8f4; --shadow:0 10px 28px rgba(14,34,59,.10);
 }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background:
-    radial-gradient(circle at 20% -10%, rgba(18,148,195,.10), transparent 30%),
-    radial-gradient(circle at 100% 0%, rgba(81,192,173,.14), transparent 22%),
-    linear-gradient(180deg,#eef6fb 0%, #f8fafc 100%);
-  color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Inter, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-}
-button, .btn {
-  touch-action: manipulation;
-}
-.app {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: max(16px, env(safe-area-inset-top)) 14px calc(108px + env(safe-area-inset-bottom));
-}
-.hero {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  margin-bottom: 14px;
-  border-radius: 26px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-}
-.hero-shell {
-  background: radial-gradient(circle at top right, rgba(255,255,255,.35), rgba(255,255,255,0) 36%), linear-gradient(135deg,#0d5c84 0%, #1294c3 54%, #51c0ad 100%);
-  color: white;
-  padding: 16px 16px 14px;
-}
-.hero h1 {
-  margin: 0 0 6px;
-  font-size: 1.46rem;
-  line-height: 1.08;
-}
-.hero .sub {
-  font-size: .95rem;
-  line-height: 1.4;
-  opacity: .96;
-}
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-top: 14px;
-}
-.pill {
-  background: rgba(255,255,255,.16);
-  border: 1px solid rgba(255,255,255,.22);
-  border-radius: 16px;
-  padding: 10px 12px;
-  font-size: .88rem;
-  backdrop-filter: blur(6px);
-}
-.hero-actions {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 12px;
-}
-.subnav {
-  display:flex;
-  gap:10px;
-  overflow:auto;
-  padding: 10px 2px 2px;
-  scrollbar-width:none;
-}
-.tab {
-  flex:0 0 auto;
-  border:0;
-  background:white;
-  color:#17354a;
-  border-radius:999px;
-  padding:10px 12px;
-  font-weight:800;
-  font-size:.88rem;
-  box-shadow:0 5px 14px rgba(18,52,77,.08);
-  border-left:8px solid transparent;
-}
-.tab.active {
-  background:#ecf6fc;
-}
-.banner {
-  background: linear-gradient(135deg,#ffffff 0%, #f5fbff 100%);
-  border:1px solid var(--border);
-  border-radius: 18px;
-  box-shadow: var(--shadow);
-  padding: 14px;
-  margin-bottom: 14px;
-}
-.banner h2 {
-  margin:0 0 6px;
-  font-size:1rem;
-}
-.banner p {
-  margin:0;
-  color:var(--muted);
-  font-size:.92rem;
-  line-height:1.45;
-}
-.panel {
-  background: var(--card);
-  border:1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  overflow:hidden;
-  margin-bottom: 14px;
-  scroll-margin-top: 110px;
-}
-.panel-head {
-  padding: 14px 14px 12px;
-  border-bottom: 1px solid var(--border);
-  background: linear-gradient(180deg,#fff 0%, #fbfdff 100%);
-}
-.topline {
-  display:flex;
-  align-items:center;
-  gap:10px;
-  flex-wrap: wrap;
-}
-.day-label {
-  font-size: .82rem;
-  font-weight:800;
-  letter-spacing:.03em;
-  color: var(--muted);
-  text-transform: uppercase;
-}
-.swatch {
-  width:14px;
-  height:14px;
-  border-radius:999px;
-  box-shadow: inset 0 0 0 2px rgba(255,255,255,.55);
-}
-.panel-head h2 {
-  margin: 5px 0 6px;
-  font-size: 1.14rem;
-  line-height: 1.18;
-}
-.meta {
-  color: var(--muted);
-  font-size: .92rem;
-  line-height: 1.45;
-  margin: 4px 0;
-}
-.summary-bar {
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-top: 12px;
-}
-.summary-box {
-  background:#f8fbfe;
-  border:1px solid var(--border);
-  border-radius: 16px;
-  padding: 10px 12px;
-}
-.summary-box .k {
-  font-size:.76rem;
-  font-weight:800;
-  letter-spacing:.03em;
-  text-transform:uppercase;
-  color:var(--muted);
-  margin-bottom:4px;
-}
-.summary-box .v {
-  font-size:.92rem;
-  color:#1d3f56;
-}
-.controls {
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-top:12px;
-}
-.btn {
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:6px;
-  border-radius:999px;
-  padding:10px 13px;
-  border:1px solid #d6e8f4;
-  background:#eef6fb;
-  color:#0d5c84;
-  font-weight:800;
-  font-size:.87rem;
-  text-decoration:none;
-  cursor:pointer;
-  -webkit-appearance:none;
-  appearance:none;
-}
-.btn.primary {
-  background:#0f5d8c;
-  color:white;
-  border-color:#0f5d8c;
-}
-.btn.route {
-  background:#eef8f4;
-  color:#0d7b55;
-  border-color:#d2eadf;
-}
-.btn:active, .tab:active, .navbtn:active {
-  transform: scale(.98);
-}
-.day-body {
-  padding: 12px 14px 14px;
-}
-.group {
-  margin-bottom: 14px;
-}
-.group-title {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  margin-bottom:10px;
-  font-size:.88rem;
-  font-weight:800;
-  color:#23455f;
-  text-transform: uppercase;
-  letter-spacing:.03em;
-}
-.cards {
-  display:grid;
-  gap:10px;
-}
-.item {
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:12px;
-  background:white;
-}
-.item-head {
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:10px;
-}
-.item .name {
-  font-size:1rem;
-  font-weight:800;
-  line-height:1.25;
-  margin-bottom:4px;
-}
-.item .time {
-  font-size:.9rem;
-  color:#274b65;
-  font-weight:600;
-  margin-bottom:6px;
-}
-.item .address {
-  font-size:.9rem;
-  color:var(--muted);
-  line-height:1.35;
-  margin-bottom:10px;
-}
-.badge {
-  padding:7px 10px;
-  border-radius:999px;
-  font-size:.77rem;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:.03em;
-  white-space:nowrap;
-}
-.badge.beach { background:#eef7ff; color:#0d69b4; border:1px solid #d3e7fb; }
-.badge.food { background:#fff6ea; color:#9a5d00; border:1px solid #f4dfbf; }
-.badge.logistics { background:#f3f2ff; color:#6557c7; border:1px solid #ddd9ff; }
-.badge.activity { background:#ecfbf3; color:#0d7b55; border:1px solid #cfeada; }
-.checkline {
-  display:flex;
-  gap:10px;
-  align-items:flex-start;
-  margin-top:12px;
-  padding-top:10px;
-  border-top:1px dashed var(--border);
-}
-.checkline input {
-  width:20px;
-  height:20px;
-  margin-top:1px;
-}
-.checkline label {
-  color:#32546d;
-  font-size:.9rem;
-  line-height:1.35;
-}
-.option-list {
-  margin: 0;
-  padding-left: 18px;
-  color:#35546d;
-}
-.option-list li {
-  margin: 8px 0;
-}
-.weather-strip {
-  display:grid;
-  grid-template-columns: repeat(8, minmax(124px,1fr));
-  gap:10px;
-  overflow:auto;
-}
-.wx-card {
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:12px;
-  background:#fff;
-  min-width:125px;
-}
-.wx-card .d {
-  font-weight:800;
-  font-size:.92rem;
-}
-.wx-card .s {
-  color:var(--muted);
-  font-size:.86rem;
-  line-height:1.35;
-  margin: 5px 0 8px;
-}
-.footer-note {
-  color:var(--muted);
-  font-size:.86rem;
-  line-height:1.45;
-}
-.drawer {
-  position: fixed;
-  inset: auto 10px calc(76px + env(safe-area-inset-bottom)) 10px;
-  background: rgba(255,255,255,.98);
-  border:1px solid var(--border);
-  border-radius: 22px;
-  box-shadow: var(--shadow);
-  padding: 14px;
-  z-index: 30;
-  display:none;
-}
-.drawer.show {
-  display:block;
-}
-.drawer h3 {
-  margin:0 0 8px;
-  font-size:1rem;
-}
-.drawer p {
-  margin:0 0 10px;
-  color:var(--muted);
-  line-height:1.45;
-  font-size:.92rem;
-}
-.sticky-nav {
-  position: fixed;
-  left:0;
-  right:0;
-  bottom:0;
-  z-index:25;
-  padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
-  background: linear-gradient(180deg, rgba(248,250,252,0) 0%, rgba(248,250,252,.92) 18%, rgba(248,250,252,1) 100%);
-}
-.sticky-nav-inner {
-  max-width: 900px;
-  margin: 0 auto;
-  background: rgba(255,255,255,.96);
-  border:1px solid var(--border);
-  border-radius: 999px;
-  padding: 8px;
-  box-shadow: var(--shadow);
-  display:grid;
-  grid-template-columns: repeat(4,1fr);
-  gap:8px;
-}
-.navbtn {
-  text-align:center;
-  font-weight:800;
-  font-size:.82rem;
-  color:#37546b;
-  padding:9px 4px;
-  border-radius:999px;
-  background:transparent;
-  border:0;
-  -webkit-appearance:none;
-  appearance:none;
-}
-.navbtn.active {
-  background:#eef6fb;
-  color:#0d5c84;
-}
-@media (max-width: 560px) {
-  .hero-grid,
-  .summary-bar {
-    grid-template-columns: 1fr;
-  }
-}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Inter,Arial,sans-serif;background:linear-gradient(180deg,#eef5fb 0%,#f8fafc 100%);color:var(--ink);-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none}
+.app{max-width:920px;margin:0 auto;padding:0 14px 120px}
+.hero{position:sticky;top:0;z-index:20;margin:0 -14px 14px;background:linear-gradient(135deg,#0d5c84 0%,#1294c3 58%,#51c0ad 100%);color:#fff;box-shadow:var(--shadow)}
+.hero-inner{padding:calc(18px + env(safe-area-inset-top)) 18px 16px}
+.hero h1{margin:0;font-size:2rem;line-height:1.05}
+.hero .sub{margin-top:6px;font-size:1rem;line-height:1.35;opacity:.96}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.chip{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.22);border-radius:999px;padding:8px 12px;font-weight:700;font-size:.88rem}
+.notice{margin:14px 0 0;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:12px 14px;font-size:.92rem;line-height:1.4}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 13px;border-radius:999px;font-weight:800;font-size:.9rem;border:1px solid #d4e5f2;background:#eef6fb;color:var(--blue)}
+.btn.primary{background:#fff;color:var(--blue)}
+.section{background:var(--card);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:14px}
+.section-head{padding:14px 16px 12px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff 0%,#fbfdff 100%)}
+.kicker{font-size:.8rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.section h2{margin:6px 0 0;font-size:1.18rem}
+.section-body{padding:14px 16px 16px}
+.grid{display:grid;gap:10px}
+.grid.two{grid-template-columns:1fr 1fr}
+.info{border:1px solid var(--line);border-radius:18px;padding:12px;background:#fbfdff}
+.info h3{margin:0 0 6px;font-size:1rem}
+.info p{margin:0;color:var(--muted);line-height:1.45}
+.info ul{margin:8px 0 0 18px;padding:0;color:var(--muted)}
+.day-tabs{display:flex;gap:8px;overflow:auto;padding:2px 0 6px}
+.day-tabs button{border:0;background:#fff;border-radius:999px;padding:10px 12px;font-weight:800;color:var(--ink);box-shadow:0 5px 14px rgba(18,52,77,.08)}
+.day-tabs button.active{background:#ecf6fc;color:var(--blue)}
+.day{scroll-margin-top:100px}
+.day h3{margin:0;font-size:1.25rem}
+.day-meta{margin:6px 0 0;color:var(--muted);line-height:1.45}
+.items{display:grid;gap:10px;margin-top:12px}
+.item{border:1px solid var(--line);border-radius:18px;padding:12px;background:#fff}
+.item.food{background:#fff9f0}
+.item.beach{background:#f0f8ff}
+.item.stay{background:#f3fbf6}
+.item.activity{background:#f6f2ff}
+.item.travel{background:#f7fbfe}
+.item-head{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.item-title{font-weight:800;font-size:1rem;line-height:1.25}
+.badge{white-space:nowrap;border-radius:999px;padding:7px 10px;font-size:.76rem;font-weight:800;text-transform:uppercase;letter-spacing:.03em}
+.badge.food{background:#fde6c8;color:#8b5200}
+.badge.beach{background:#dff0ff;color:#0d69b4}
+.badge.stay{background:#dff4e8;color:#18704d}
+.badge.activity{background:#ece3ff;color:#6e43b6}
+.badge.travel{background:#e8f2f9;color:#46647a}
+.time{margin-top:4px;font-weight:700;color:#274b65;font-size:.92rem}
+.addr{margin-top:6px;color:var(--muted);font-size:.92rem;line-height:1.4}
+.notes{margin:8px 0 0 18px;padding:0;color:var(--muted)}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.small{font-size:.86rem}
+.footer-nav{position:fixed;left:0;right:0;bottom:0;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(248,250,252,0) 0%,rgba(248,250,252,.92) 18%,rgba(248,250,252,1) 100%)}
+.footer-nav .wrap{max-width:920px;margin:0 auto;background:rgba(255,255,255,.96);border:1px solid var(--line);border-radius:999px;padding:8px;box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.footer-nav a{text-align:center;font-weight:800;font-size:.82rem;color:#37546b;padding:9px 4px;border-radius:999px}
+.footer-nav a:hover{background:#eef6fb}
+@media (max-width:620px){.grid.two{grid-template-columns:1fr}.hero h1{font-size:1.7rem}}
 </style>
 </head>
 <body>
+<div class="hero">
+  <div class="hero-inner">
+    <h1>Big Island Family Adventure</h1>
+    <div class="sub">Apr 7–14, 2026 · Kohala Coast base · beaches, snorkeling, poke, Kona town, and one volcano day.</div>
+    <div class="chips">
+      <div class="chip">Base: Resortica Hawaii</div>
+      <div class="chip">Arrive Tue Apr 7 · 4:00 PM</div>
+      <div class="chip">Depart Tue Apr 14 · 11:00 AM</div>
+      <div class="chip">Lava Lava reservation: Thu Apr 9 · 8:00 PM</div>
+    </div>
+    <div class="notice">
+      <strong>Booking access:</strong> Public page shows only a masked arrival note for security.
+      Exact gate and door codes should stay in the arrival email or a private family-only message.
+    </div>
+    <div class="actions">
+      <a class="btn primary" href="#booking">Booking</a>
+      <a class="btn primary" href="#day3">Lava Lava Day</a>
+      <a class="btn primary" href="#day5">Volcano Day</a>
+      <a class="btn primary" href="#forecast">Forecast</a>
+    </div>
+  </div>
+</div>
+
 <div class="app">
-  <section class="hero" id="top">
-    <div class="hero-shell">
-      <h1>Big Island Family Adventure</h1>
-      <div class="sub">Apr 7–14, 2026 · Kohala Coast base · mobile itinerary with map buttons, optimized day clusters, dinners every night, weather notes, and flexible backup options.</div>
-      <div class="hero-grid">
-        <div class="pill"><strong>Base</strong><br>Airbnb – Resortica<br>68-1125 N Kaniku Dr, Waimea, HI 96743</div>
-        <div class="pill"><strong>Fixed dinner</strong><br>Thu 4/9 · Reservation 8:00 PM<br>Lava Lava Beach Club</div>
-      </div>
-      <div class="hero-actions">
-        <a class="btn primary" href="https://maps.google.com/?q=68-1125+N+Kaniku+Dr+Waimea+HI+96743" target="_blank" rel="noopener">Open base in Maps</a>
-        <button class="btn" type="button" onclick="shareTrip()">Share</button>
-        <button class="btn" type="button" onclick="toggleDrawer()">Use on iPhone</button>
-      </div>
-      <div class="subnav" id="topTabs">
-<button class="tab" type="button" style="border-left-color:#0d8f78" onclick="goToSection('day1')">Tue 4/7</button>
-<button class="tab" type="button" style="border-left-color:#1780ff" onclick="goToSection('day2')">Wed 4/8</button>
-<button class="tab" type="button" style="border-left-color:#f39c12" onclick="goToSection('day3')">Thu 4/9</button>
-<button class="tab" type="button" style="border-left-color:#8e44ad" onclick="goToSection('day4')">Fri 4/10</button>
-<button class="tab" type="button" style="border-left-color:#df4a32" onclick="goToSection('day5')">Sat 4/11</button>
-<button class="tab" type="button" style="border-left-color:#16a085" onclick="goToSection('day6')">Sun 4/12</button>
-<button class="tab" type="button" style="border-left-color:#2475c4" onclick="goToSection('day7')">Mon 4/13</button>
-<button class="tab" type="button" style="border-left-color:#7b8794" onclick="goToSection('day8')">Tue 4/14</button>
-
+  <section class="section" id="booking">
+    <div class="section-head">
+      <div class="kicker">Stay details</div>
+      <h2>Booking and arrival essentials</h2>
+    </div>
+    <div class="section-body">
+      <div class="grid two">
+        <div class="info">
+          <h3>Resortica Hawaii</h3>
+          <p>68-1125 N Kaniku Dr, Waimea, HI 96743</p>
+          <div class="row">
+            <a class="btn small" href="https://maps.google.com/?q=68-1125+N+Kaniku+Dr+Waimea+HI+96743" target="_blank" rel="noopener">Open in Maps</a>
+          </div>
+        </div>
+        <div class="info">
+          <h3>Arrival + departure</h3>
+          <p>Arrival: Tue Apr 7, 2026 at 4:00 PM<br>Departure: Tue Apr 14, 2026 at 11:00 AM</p>
+          <ul>
+            <li>Vehicle entrance gate code available in arrival email</li>
+            <li>Front door keypad code available in arrival email</li>
+            <li>Door code activates at check-in time unless other arrangements were made</li>
+          </ul>
+        </div>
+        <div class="info">
+          <h3>Arrival flow</h3>
+          <p>KOA Airport → Sixt rental car → Costco Kona → drive to the condo → easy dinner nearby.</p>
+        </div>
+        <div class="info">
+          <h3>Lock-up reminder</h3>
+          <p>To secure the door when leaving, use the keypad lock function noted in the arrival instructions.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="banner">
-    <h2>Hosted-ready version</h2>
-    <p>This version is built to feel more app-like on iPhone. Internal buttons stay inside the page, map buttons open directions, and your last section is remembered automatically. If you later host this file at a simple URL, it will feel even closer to a lightweight trip app.</p>
-  </section>
-
-  <section class="panel">
-    <div class="panel-head">
-      <div class="topline"><span class="day-label">Trip summary</span></div>
-      <h2>Fast trip view</h2>
-      <div class="summary-bar">
-        <div class="summary-box">
-          <div class="k">Best protected-water day</div>
-          <div class="v">Day 2 at Mauna Lani is your safest snorkel fallback if waves are up elsewhere.</div>
-        </div>
-        <div class="summary-box">
-          <div class="k">Hard reservation</div>
-          <div class="v">Thu 4/9 · Reservation 8:00 PM · Lava Lava Beach Club</div>
-        </div>
-      </div>
-      <div class="controls">
-        <button class="btn" type="button" onclick="goToSection('day3')">Jump to Lava Lava day</button>
-        <button class="btn" type="button" onclick="goToSection('day5')">Jump to Volcano day</button>
-        <button class="btn" type="button" onclick="goToSection('forecast')">Jump to forecast</button>
+  <section class="section" id="forecast">
+    <div class="section-head">
+      <div class="kicker">Forecast snapshot</div>
+      <h2>Weather outlook</h2>
+    </div>
+    <div class="section-body">
+      <div class="grid two">
+        <div class="info"><h3>Tue 4/7</h3><p>Cloudy with afternoon showers · 81°F / 64°F</p></div>
+        <div class="info"><h3>Wed 4/8</h3><p>Rain periods, some heavy · 79°F / 66°F</p></div>
+        <div class="info"><h3>Thu 4/9</h3><p>Rain periods, some heavy · 77°F / 65°F</p></div>
+        <div class="info"><h3>Fri 4/10</h3><p>Rain possible; localized flooding risk · 76°F / 64°F</p></div>
+        <div class="info"><h3>Sat 4/11</h3><p>Mostly cloudy with times of rain · Coast 80°F / 65°F · Volcano cooler and showery</p></div>
+        <div class="info"><h3>Sun 4/12</h3><p>Cloudy with late showers · 78°F / 64°F</p></div>
+        <div class="info"><h3>Mon 4/13</h3><p>Cloudy with a couple early showers · 74°F / 61°F</p></div>
+        <div class="info"><h3>Tue 4/14</h3><p>Morning spotty shower, more afternoon showers · 74°F / 63°F</p></div>
       </div>
     </div>
   </section>
 
-  <section class="panel" id="forecast">
-    <div class="panel-head">
-      <div class="topline"><span class="day-label">Forecast snapshot</span></div>
-      <h2>Weather outlook for the trip</h2>
-      <div class="meta">Beach mornings look strongest. Volcano day should feel much cooler than the coast.</div>
-    </div>
-    <div class="day-body">
-      <div class="weather-strip">
-
-        <div class="wx-card">
-          <div class="d">Tue 4/7</div>
-          <div class="s">Cloudy with afternoon showers · 81°F / 64°F</div>
-          <div class="footer-note">Arrival + Settle In</div>
-        </div>
-
-        <div class="wx-card">
-          <div class="d">Wed 4/8</div>
-          <div class="s">Rain periods, some heavy · 79°F / 66°F</div>
-          <div class="footer-note">Protected Snorkel + Resort Shops</div>
-        </div>
-
-        <div class="wx-card">
-          <div class="d">Thu 4/9</div>
-          <div class="s">Rain periods, some heavy · 77°F / 65°F</div>
-          <div class="footer-note">Hapuna Beach Day + Lava Lava Reservation</div>
-        </div>
-
-        <div class="wx-card">
-          <div class="d">Fri 4/10</div>
-          <div class="s">Rain possible; localized flooding risk · 76°F / 64°F</div>
-          <div class="footer-note">Kona Town + Turtles + Poke</div>
-        </div>
-
-        <div class="wx-card">
-          <div class="d">Sat 4/11</div>
-          <div class="s">Mostly cloudy with times of rain · Coast 80°F / 65°F · Volcano cooler and showery</div>
-          <div class="footer-note">Volcano National Park Big Day</div>
-        </div>
-
-        <div class="wx-card">
-          <div class="d">Sun 4/12</div>
-          <div class="s">Cloudy with late showers · 78°F / 64°F</div>
-          <div class="footer-note">North Coast Easy Day</div>
-        </div>
-
-        <div class="wx-card">
-          <div class="d">Mon 4/13</div>
-          <div class="s">Cloudy with a couple early showers · 74°F / 61°F</div>
-          <div class="footer-note">Grand Finale Beach Day</div>
-        </div>
-
-        <div class="wx-card">
-          <div class="d">Tue 4/14</div>
-          <div class="s">Morning spotty shower, more afternoon showers · 74°F / 63°F</div>
-          <div class="footer-note">Departure Day</div>
-        </div>
-
+  <section class="section">
+    <div class="section-head">
+      <div class="kicker">Jump to a day</div>
+      <div class="day-tabs">
+        <button class="active" onclick="location.hash='day1'">Tue 4/7</button>
+        <button onclick="location.hash='day2'">Wed 4/8</button>
+        <button onclick="location.hash='day3'">Thu 4/9</button>
+        <button onclick="location.hash='day4'">Fri 4/10</button>
+        <button onclick="location.hash='day5'">Sat 4/11</button>
+        <button onclick="location.hash='day6'">Sun 4/12</button>
+        <button onclick="location.hash='day7'">Mon 4/13</button>
+        <button onclick="location.hash='day8'">Tue 4/14</button>
       </div>
     </div>
   </section>
 
-  <section class="panel" id="day1">
-    <div class="panel-head">
-      <div class="topline"><span class="swatch" style="background:#0d8f78"></span><span class="day-label">Tue 4/7</span></div>
-      <h2>Arrival + Settle In</h2>
-      <div class="meta"><strong>Forecast:</strong> Cloudy with afternoon showers · 81°F / 64°F</div>
-      <div class="meta"><strong>Optimized route:</strong> KOA Airport → Sixt → Costco → Airbnb</div>
-      <div class="meta"><strong>Drive note:</strong> Total driving about 45–55 min plus stops</div>
-      <div class="summary-bar">
-        <div class="summary-box">
-          <div class="k">Dinner</div>
-          <div class="v">Island Gourmet Markets</div>
-        </div>
-        <div class="summary-box">
-          <div class="k">Plan status</div>
-          <div class="v" id="day1-status">Not marked complete yet</div>
-        </div>
-      </div>
-      <div class="controls">
-        <button class="btn" type="button" onclick="toggleDay('day1')">Collapse / expand</button>
-        <button class="btn" type="button" onclick="goToOptions('day1')">Jump to options</button>
+  <section class="section day" id="day1">
+    <div class="section-head">
+      <div class="kicker">Tue Apr 7</div><h2>Arrival + settle in</h2>
+    </div>
+    <div class="section-body">
+      <div class="day-meta">Optimized route: KOA Airport → Sixt → Costco → Airbnb → Island Gourmet Markets</div>
+      <div class="items">
+        <div class="item travel"><div class="item-head"><div><div class="item-title">Flight SEA → KOA</div><div class="time">Delta DL340 · Arrive 6:38 PM HST</div></div><div class="badge travel">Travel</div></div><div class="addr">Kona International Airport (KOA), 73-200 Kupipi St, Kailua-Kona, HI 96740</div></div>
+        <div class="item travel"><div class="item-head"><div><div class="item-title">Rental Car – Sixt</div><div class="time">Pick up 6:00–6:30 PM HST</div></div><div class="badge travel">Travel</div></div><div class="addr">73-5622 Kaiakoi St, Kailua-Kona, HI 96740</div></div>
+        <div class="item food"><div class="item-head"><div><div class="item-title">Costco Kona</div><div class="time">Quick supply stop</div></div><div class="badge food">Food</div></div><div class="addr">73-5600 Maiau St, Kailua-Kona, HI 96740</div><ul class="notes"><li>Breakfast items</li><li>Beach snacks</li><li>Drinks</li><li>Sunscreen</li></ul></div>
+        <div class="item stay"><div class="item-head"><div><div class="item-title">Airbnb check-in – Resortica</div><div class="time">Check-in from 4:00 PM</div></div><div class="badge stay">Stay</div></div><div class="addr">68-1125 N Kaniku Dr, Waimea, HI 96743</div><ul class="notes"><li>Use arrival email for gate and keypad details</li></ul></div>
+        <div class="item food"><div class="item-head"><div><div class="item-title">Dinner – Island Gourmet Markets</div><div class="time">Easy first-night dinner / poke / groceries</div></div><div class="badge food">Dinner</div></div><div class="addr">69-201 Waikoloa Beach Dr, Waikoloa Village, HI 96738</div></div>
       </div>
     </div>
-    <div class="day-body" id="day1-body">
-      <div class="group">
-        <div class="group-title"><span>Stops and reservations</span><span class="badge logistics">day plan</span></div>
-        <div class="cards">
+  </section>
 
-          <article class="item">
-            <div class="item-head">
-              <div>
-                <div class="name">1. SEA → KOA · Delta DL340</div>
-                <div class="time">Dep 3:25 PM PDT · Arr 6:38 PM HST</div>
-              </div>
-              <span class="badge logistics">Flight</span>
-            </div>
-            <div class="address">Kona International Airport (KOA), 73-200 Kupipi St, Kailua-Kona, HI 96740</div>
-            <div class="controls">
-              <a class="btn primary" href="https://maps.google.com/?q=Kona+International+Airport+KOA" target="_blank" rel="noopener">Open in Maps</a>
+  <section class="section day" id="day2">
+    <div class="section-head"><div class="kicker">Wed Apr 8</div><h2>Mauna Lani Beach + shops</h2></div>
+    <div class="section-body"><div class="day-meta">Protected water and easy family snorkeling day.</div>
+      <div class="items">
+        <div class="item beach"><div class="item-head"><div><div class="item-title">Mauna Lani Beach Club</div><div class="time">Best 8:30–11:30 AM</div></div><div class="badge beach">Beach</div></div><div class="addr">68-1292 S Kaniku Dr, Waimea, HI 96743</div><ul class="notes"><li>Protected cove</li><li>Easy snorkeling</li><li>Great for kids</li></ul></div>
+        <div class="item food"><div class="item-head"><div><div class="item-title">Island Coffee Company</div><div class="time">Coffee / pastries</div></div><div class="badge food">Food</div></div><div class="addr">250 Waikoloa Beach Dr, Waikoloa Village, HI 96738</div></div>
+        <div class="item food"><div class="item-head"><div><div class="item-title">Original Big Island Shave Ice Co.</div><div class="time">Afternoon treat</div></div><div class="badge food">Food</div></div><div class="addr">250 Waikoloa Beach Dr, Waikoloa Village, HI 96738</div></div>
+        <div class="item food"><div class="item-head"><div><div class="item-title">Dinner – Merriman’s Waimea</div><div class="time">Target 6:00–7:00 PM</div></div><div class="badge food">Dinner</div></div><div class="addr">65-1227 Opelo Rd, Kamuela, HI 96743</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section day" id="day3">
+    <div class="section-head"><div class="kicker">Thu Apr 9</div><h2>Hapuna Beach + Lava Lava</h2></div>
+    <div class="section-body"><div class="day-meta">Classic sandy beach day with your fixed dinner reservation.</div>
+      <div class="items">
+        <div class="item food"><div class="item-head"><div><div class="item-title">Manuela Malasada Co.</div><div class="time">Morning stop on the way north</div></div><div class="badge food">Food</div></div><div class="addr">62-3642 Akoni Pule Hwy, Kamuela, HI 96743</div></div>
+        <div class="item beach"><div class="item-head"><div><div class="item-title">Hapuna Beach State Recreation Area</div><div class="time">Target 9:00 AM arrival</div></div><div class="badge beach">Beach</div></div><div class="addr">Old Puako Rd, Waimea, HI 96743</div><ul class="notes"><li>Morning usually calmer</li><li>Afternoon often better for boogie boarding</li></ul></div>
+        <div class="item food"><div class="item-head"><div><div class="item-title">Dinner – Lava Lava Beach Club</div><div class="time">Reservation 8:00 PM</div></div><div class="badge food">Dinner</div></div><div class="addr">69-1081 Kuʻualiʻi Pl, Waikoloa Village, HI 96738</div><ul class="notes"><li>Feet-in-the-sand atmosphere</li><li>Yard games and sunset vibe</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section day" id="day4">
+    <div class="section-head"><div class="kicker">Fri Apr 10</div><h2>Kona Town + turtles</h2></div>
+    <div class="section-body"><div class="day-meta">Cluster the stops in Kona to reduce backtracking.</div>
+      <div class="items">
+        <div class="item beach"><div class="item-head"><div><div class="item-title">Kahaluu Beach Park</div><div class="time">Arrive early for calmer water and easier parking</div></div><div class="badge beach">Beach</div></div><div class="addr">78-6685 Aliʻi Dr, Kailua-Kona, HI 96740</div><ul class="notes"><li>Turtles</li><li>Fish</li><li>Great snorkel stop</li></ul></div>
+        <div class="item food"><div class="item-head"><div><div class="item-title">Da Poke Shack</div><div class="time">Lunch</div></div><div class="badge food">Food</div></div><div class="addr">76-6246 Aliʻi Dr, Kailua-Kona, HI 96740</div></div>
+        <div class="item food"><div class="item-head"><div><div class="item-title">Scandinavian Shave Ice</div><div class="time">Afternoon treat</div></div><div class="badge food">Food</div></div><div class="addr">75-5699 Aliʻi Dr, Kailua-Kona, HI 96740</div></div>
+        <div class="item food"><div class="item-head"><div><div class="item-title">Dinner – Black Rock Pizza</div><div class="time">Before driving back north</div></div><div class="badge food">Dinner</div></div><div class="addr">75-5815 Aliʻi Dr, Kailua-Kona, HI 96740</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section day" id="day5">
+    <div class="section-head"><div class="kicker">Sat Apr 11</div><h2>Volcano National Park</h2></div>
+    <div class="section-body"><div class="day-meta">Big drive day. Leave early and expect cooler, wetter weather at elevation.</div>
+      <div class="items">
+        <div class="item activity"><div class="item-head"><div><div class="item-title">Hawaiʻi Volcanoes National Park</div><div class="time">Leave early; aim for late morning arrival</div></div><div class="badge activity">Activity</div></div><div class="addr">1 Crater Rim Dr, Hawaiʻi Volcanoes National Park, HI 96718</div><ul class="notes"><li>Kīlauea overlook</li><li>Steam vents</li><li>Bring layers</li></ul></div>
+        <div class="item food"><div class="item-head"><div><div class="item-title">Cafe Pesto Hilo Bay</div><div class="time">Lunch</div></div><div class="badge food">Food</div></div><div class="addr">308 Kamehameha Ave, Hilo, HI 96720</div></div>
+        <div class="item food"><div class="item-head"><div><div class="item-title">Dinner – Island Gourmet Markets</div><div class="time">Easy dinner back near the condo</div></div><div class="badge food">Dinner</div></div><div class="addr">69-201 Waikoloa Beach Dr, Waikoloa Village, HI 96738</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section day" id="day6">
+    <div class="section-head"><div class="kicker">Sun Apr 12</div><h2>North Coast easy day</h2></div>
+    <div class="section-body"><div class="day-meta">A lighter day with calm water and optional cultural stop.</div>
+      <div class="items">
+        <div class="item beach"><div class="item-head"><div><div class="item-title">Spencer Beach Park</div><div class="time">Morning beach / swim</div></div><div class="badge beach">Beach</div></div><div class="addr">62-3461 Kawaihae Rd, Waimea, HI 96743</div></div>
+        <div class="item activity"><div class="item-head"><div><div class="item-title">Puʻukoholā Heiau National Historic Site</div><div class="time">Quick cultural stop</div></div><div class="badge activity">Activity</div></div><div class="addr">62-3601 Kawaihae Rd, Waimea, HI 96743</div></div>
+        <div class="item food"><div class="item-head"><div><div class="item-title">Dinner – Nāpua at Mauna Lani</div><div class="time">Ocean-view dinner</div></div><div class="badge food">Dinner</div></div><div class="addr">68-1292 S Kaniku Dr, Waimea, HI 96743</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section day" id="day7">
+    <div class="section-head"><div class="kicker">Mon Apr 13</div><h2>Grand finale beach day</h2></div>
+    <div class="section-body"><div class="day-meta">One last beautiful beach day and final-night dinner.</div>
+      <div class="items">
+        <div class="item beach"><div class="item-head"><div><div class="item-title">Mauna Kea Beach</div><div class="time">Aim to arrive before 10:00 AM for parking</div></div><div class="badge beach">Beach</div></div><div class="addr">62-100 Mauna Kea Beach Dr, Waimea, HI 96743</div></div>
+        <div class="item food"><div class="item-head"><div><div class="item-title">Foodland Farms Mauna Lani</div><div class="time">Poke / snacks / picnic refill</div></div><div class="badge food">Food</div></div><div class="addr">68-1330 Mauna Lani Dr, Waimea, HI 96743</div></div>
+        <div class="item food"><div class="item-head"><div><div class="item-title">Dinner – CanoeHouse</div><div class="time">Final-night dinner</div></div><div class="badge food">Dinner</div></div><div class="addr">68-1400 Mauna Lani Dr, Waimea, HI 96743</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section day" id="day8">
+    <div class="section-head"><div class="kicker">Tue Apr 14</div><h2>Departure day</h2></div>
+    <div class="section-body"><div class="day-meta">Keep it light and easy. Check out, return car, and head to KOA.</div>
+      <div class="items">
+        <div class="item stay"><div class="item-head"><div><div class="item-title">Airbnb check-out</div><div class="time">11:00 AM</div></div><div class="badge stay">Stay</div></div><div class="addr">68-1125 N Kaniku Dr, Waimea, HI 96743</div></div>
+        <div class="item travel"><div class="item-head"><div><div class="item-title">Sixt return</div><div class="time">Around 6:00–7:00 PM HST</div></div><div class="badge travel">Travel</div></div><div class="addr">73-5622 Kaiakoi St, Kailua-Kona, HI 96740</div></div>
+        <div class="item travel"><div class="item-head"><div><div class="item-title">Flight KOA → SEA</div><div class="time">8:50 PM departure</div></div><div class="badge travel">Travel</div></div><div class="addr">Kona International Airport (KOA), 73-200 Kupipi St, Kailua-Kona, HI 96740</div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="footer-nav">
+  <div class="wrap">
+    <a href="#booking">Booking</a>
+    <a href="#forecast">Forecast</a>
+    <a href="#day3">Lava Lava</a>
+    <a href="#day5">Volcano</a>
+  </div>
+</div>
+</body>
+</html>
